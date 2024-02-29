@@ -1,0 +1,14 @@
+# git项目地址和分支
+gitlab_projects: 
+
+
+# 本地项目路径
+local_dirs:
+
+
+# gitlab库地址
+gitlab_libs:
+
+# 默认不开启JS扫描
+is_scan_js: false
+

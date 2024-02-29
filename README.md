@@ -1,8 +1,7 @@
 # Code-Audit-DependencyCheck
 
 ## 简介
-- 代码安全组件扫描-DependencyCheck升级版，增加对maven项目pom.xml文件引用的依赖jar进行组件漏洞扫描并输出报告
-- DependencyCheck官方README：[README-DependencyCheck.md](./README-DependencyCheck.md)
+代码安全组件扫描-DependencyCheck升级版，增加对maven项目pom.xml文件引用的依赖jar进行组件漏洞扫描并输出指定模板样式报告
 
 ## 编译环境
 
@@ -17,7 +16,7 @@
 
 ## 编译与发布
 
-1. 进入项目根目录下，执行编译命令：```mvn -s settings.xml clean install -DskipTests=true```
+1. 下载官方原版DependencyCheck源码，进入项目根目录下，执行编译命令：```mvn -s settings.xml clean install -DskipTests=true```
 
    ![image-20221009145318829](./README.assets/image-20221009145318829.png)
 
@@ -41,13 +40,12 @@
 
 ## 使用方式
 
-1. 使用下载好的漏洞库进行扫描，为防止误报过多，不扫描JS和NodeJS
+```python
+python Code-Audit-Depend.py [-p指定项目地址] [-b指定项目分支] [-l指定本地项目路径] [-g指定gitlab地址] [-t指定gitlab库token]
+可按需指定远程githu本项目地址和具体分支/本地项目路径/gitlab项目地址进行JAVA组件漏洞扫描
+```
 
-`dependency-check.bat --project [项目名称] -s [扫描目录] -o [报告输出目录] --format [报告输出格式HTML/CSV等] --cveUrlModified nvdcve-1.1-modified.json.gz<本地nvd库的url> --cveUrlBase nvdcve-1.1-2022.json.gz<本地nvd库的url> --disableRetireJS --disableNodeJS -n[表示不更新漏洞库]`
 
-2. 扫描前先更新漏洞库
-
-`dependency-check.bat --project [项目名称] -s [扫描目录] -o [报告输出目录] --format [报告输出格式HTML/CSV等]  --disableRetireJS --disableNodeJS`
 
 ## 改动文件
 ```
